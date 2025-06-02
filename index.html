@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Free Web tutorials in Angular" />
+  <meta name="keywords" content="HTML, CSS, JavaScript, Angular, Angular Material" />
+  <meta name="author" content="Darvin Kumar" />
+  <title>Darvin Tech: Solution to Front End problems in Angular</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="./style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container-fluid page" onmousemove="onMouseMove(event)">
+    <header class="header">
+      <div class="content-left">
+        <div>
+          <h1 class="name">Darvin Kumar</h1>
+          <h3 class="text-lg mt-2">Senior Software Engineer at Neosoft</h3>
+          <p class="short-d">
+            Passionate about developing modern, accessible, scalable, and
+            aesthetically pleasing web applications.
+          </p>
+          <nav class="pt-5">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="#" onclick="scrollToDiv('about', event)">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="scrollToDiv('experience',event)">Experience</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="scrollToDiv('projects',event)">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" onclick="scrollToDiv('awards',event)">Achievements</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="social-btns">
+          <a href="https://linkedin.com/in/darvin-kumar" target="_blank" class="social-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0,0,256,256">
+              <g fill="#7d8293" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                style="mix-blend-mode: normal">
+                <g transform="scale(8.53333,8.53333)">
+                  <path
+                    d="M24,4h-18c-1.105,0 -2,0.895 -2,2v18c0,1.105 0.895,2 2,2h18c1.105,0 2,-0.895 2,-2v-18c0,-1.105 -0.895,-2 -2,-2zM10.954,22h-2.95v-9.492h2.95zM9.449,11.151c-0.951,0 -1.72,-0.771 -1.72,-1.72c0,-0.949 0.77,-1.719 1.72,-1.719c0.948,0 1.719,0.771 1.719,1.719c0,0.949 -0.771,1.72 -1.719,1.72zM22.004,22h-2.948v-4.616c0,-1.101 -0.02,-2.517 -1.533,-2.517c-1.535,0 -1.771,1.199 -1.771,2.437v4.696h-2.948v-9.492h2.83v1.297h0.04c0.394,-0.746 1.356,-1.533 2.791,-1.533c2.987,0 3.539,1.966 3.539,4.522z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+          </a>
+          <a href="https://stackoverflow.com/users/7663144/darvin-kumar" target="_blank" class="social-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
+              <g fill="#7d8293" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                style="mix-blend-mode: normal">
+                <g transform="scale(9.84615,9.84615)">
+                  <path
+                    d="M20.53125,0.46875c-0.54297,0.07422 -0.91797,0.57813 -0.84375,1.125l1.15625,7.9375c0.07813,0.54297 0.58203,0.92188 1.125,0.84375c0.54688,-0.07812 0.92188,-0.60937 0.84375,-1.15625l-1.125,-7.90625c-0.07812,-0.54297 -0.60937,-0.92187 -1.15625,-0.84375zM14.5,2.5625c-0.12891,0.02344 -0.25781,0.08203 -0.375,0.15625c-0.46094,0.30078 -0.58203,0.91016 -0.28125,1.375l4.375,6.71875c0.30078,0.46094 0.91406,0.58203 1.375,0.28125c0.46484,-0.30078 0.58203,-0.91016 0.28125,-1.375l-4.375,-6.71875c-0.22656,-0.34375 -0.61719,-0.50781 -1,-0.4375zM10.125,6.75c-0.25391,0.04688 -0.5,0.21094 -0.65625,0.4375c-0.3125,0.45313 -0.20312,1.05859 0.25,1.375l6.59375,4.5625c0.44922,0.3125 1.0625,0.19922 1.375,-0.25c0.31641,-0.45312 0.20313,-1.09375 -0.25,-1.40625l-6.5625,-4.53125c-0.22656,-0.15625 -0.49609,-0.23437 -0.75,-0.1875zM7.71875,11.5c-0.38672,0.04297 -0.72656,0.28906 -0.84375,0.6875c-0.15625,0.52734 0.16016,1.09375 0.6875,1.25l7.65625,2.25c0.52734,0.15625 1.09375,-0.12891 1.25,-0.65625c0.15625,-0.52734 -0.16016,-1.09375 -0.6875,-1.25l-7.65625,-2.25c-0.13281,-0.03906 -0.27734,-0.04687 -0.40625,-0.03125zM2,16v7c0,1.65625 1.34375,3 3,3h12c1.65625,0 3,-1.34375 3,-3v-7h-2v7c0,0.55078 -0.44922,1 -1,1h-12c-0.55078,0 -1,-0.44922 -1,-1v-7zM7.125,16.125c-0.55078,-0.05469 -1.03906,0.35938 -1.09375,0.90625c-0.05469,0.55078 0.35938,1.03906 0.90625,1.09375l7.96875,0.78125c0.55078,0.05469 1.03906,-0.35547 1.09375,-0.90625c0.05469,-0.54687 -0.35937,-1.03906 -0.90625,-1.09375zM7,20c-0.55078,0 -1,0.44922 -1,1c0,0.55078 0.44922,1 1,1h8c0.55078,0 1,-0.44922 1,-1c0,-0.55078 -0.44922,-1 -1,-1z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+          </a>
+          <a href="mailto:darwin4416@gmail.com" class="social-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0,0,256,256">
+              <g fill="#7d8293" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                style="mix-blend-mode: normal">
+                <g transform="scale(5.33333,5.33333)">
+                  <path d="M45,16.2l-5,2.75l-5,4.75v16.3h7c1.657,0 3,-1.343 3,-3z"></path>
+                  <path d="M3,16.2l3.614,1.71l6.386,5.79v16.3h-7c-1.657,0 -3,-1.343 -3,-3z"></path>
+                  <path d="M35,11.2l-11,8.25l-11,-8.25l-1,5.8l1,6.7l11,8.25l11,-8.25l1,-6.7z"></path>
+                  <path
+                    d="M3,12.298v3.902l10,7.5v-12.5l-3.124,-2.341c-0.744,-0.558 -1.648,-0.859 -2.578,-0.859v0c-2.374,0 -4.298,1.924 -4.298,4.298z">
+                  </path>
+                  <path
+                    d="M45,12.298v3.902l-10,7.5v-12.5l3.124,-2.341c0.744,-0.558 1.648,-0.859 2.578,-0.859v0c2.374,0 4.298,1.924 4.298,4.298z">
+                  </path>
+                </g>
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+    <main class="content-right position-relative">
+      <div>
+        <section class="section" id="about">
+          <h3 class="text-uppercase mb-0 section-heading">About</h3>
+
+          <p>
+            I am a passionate and seasoned professional with 7.5 years of
+            experience in the dynamic world of web development. Specializing
+            primarily as a Front-End Developer, I have honed my skills to
+            create visually stunning and highly functional user interfaces.
+            However, my journey in the tech realm doesn't stop there—I proudly
+            possess full-stack knowledge, making me a versatile asset in the
+            ever-evolving landscape of web development.
+          </p>
+          <p>
+            Over the years, I have collaborated with diverse teams and
+            projects, demonstrating not only technical prowess but also a
+            knack for effective communication and problem-solving. My goal is
+            not just to write code but to build solutions that make a
+            meaningful impact on users and businesses alike.
+          </p>
+        </section>
+        <section class="section" id="experience">
+          <h3 class="text-uppercase mb-0 section-heading">Experience</h3>
+          <div>
+            <div class="d-flex exp">
+              <div class="me-3 exp-duration">Dec 2020 - Present</div>
+              <div class="flex-1">
+                <div class="job-role d-flex mb-2">
+                  <span class="me-3">Sr. Software Engineer</span>
+
+                  <li>
+                    <a href="https://www.neosofttech.com/" target="_blank" class="a-link">Neosoft
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="link-icon"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </a>
+                  </li>
+                </div>
+                <div>
+                  <p class="text-sm">
+                    As a versatile Full Stack Developer at Neosoft, I have
+                    successfully built, styled, and shipped high-quality web
+                    applications and extensions. My expertise spans both
+                    front-end and backend development, contributing to
+                    projects for esteemed clients such as EY, Vgroup Inc,
+                    Alsaree3, IIHT ebunch, and more. I provide leadership
+                    within the engineering department, promoting
+                    collaboration, sharing knowledge, and spearheading the
+                    development of internal tools. Whether crafting engaging
+                    user interfaces with HTML, CSS, and JavaScript or
+                    architecting robust server-side solutions using Node.js
+                    and MongoDB, I consistently ensure the delivery of
+                    seamless and innovative digital solutions.
+                  </p>
+                </div>
+                <div>
+                  <span class="skill-tag me-2 mb-2">JavaScript</span>
+                  <span class="skill-tag me-2 mb-2">TypeScript</span>
+                  <span class="skill-tag me-2 mb-2">HTML & CSS</span>
+                  <span class="skill-tag me-2 mb-2">Node Js</span>
+                  <span class="skill-tag me-2 mb-2">Angular</span>
+                  <span class="skill-tag me-2 mb-2">Express Js</span>
+                  <span class="skill-tag mb-2">Mongo DB</span>
+                  <span class="skill-tag mb-2">Ionic</span>
+                  <span class="skill-tag mb-2">React Js</span>
+                  <span class="skill-tag mb-2">Bootstrap</span>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex exp">
+              <div class="me-3 exp-duration">May 2019 - Dec 2020</div>
+              <div class="flex-1">
+                <div class="job-role d-flex mb-2">
+                  <span class="me-3"> Software Engineer</span>
+
+                  <li>
+                    <a href="https://www.xitrisoft.com/" target="_blank" class="a-link">Xitrine Software
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="link-icon"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </a>
+                  </li>
+                </div>
+                <div>
+                  <p class="text-sm">
+                    As a Frontend Developer at XiTrine Software, I specialized
+                    in designing and implementing intuitive user interfaces
+                    for web applications in the payments domain. I led the
+                    development of the Merchant Management System, optimizing
+                    dashboards for real-time insights. Additionally, I played
+                    a crucial role in enhancing the Switch System's frontend,
+                    focusing on performance and error handling. For the Debit
+                    Card Management application, I created a user-friendly
+                    interface and collaborated with backend teams for seamless
+                    API integration. In the Clearing and Reconciliation
+                    System, my contributions automated processes, minimizing
+                    discrepancies and improving financial reporting
+                    efficiency. My achievements include a 20% improvement in
+                    user satisfaction through code optimization and positive
+                    feedback for visually appealing interfaces. My work
+                    demonstrated proficiency in frontend development and a
+                    commitment to delivering high-quality solutions in a
+                    dynamic environment.
+                  </p>
+                </div>
+                <div>
+                  <span class="skill-tag me-2 mb-2">JavaScript</span>
+                  <span class="skill-tag me-2 mb-2">TypeScript</span>
+                  <span class="skill-tag me-2 mb-2">HTML & CSS</span>
+                  <span class="skill-tag me-2 mb-2">Node Js</span>
+                  <span class="skill-tag me-2 mb-2">Angular</span>
+                  <span class="skill-tag me-2 mb-2">Express Js</span>
+                  <span class="skill-tag mb-2">Mongo DB</span>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex exp">
+              <div class="me-3 exp-duration">Mar 2018 - Oct 2018</div>
+              <div class="flex-1">
+                <div class="job-role d-flex mb-2">
+                  <span class="me-3"> Web Developer</span>
+
+                  <li>
+                    <a href="http://www.godestination.com/" target="_blank" class="a-link">Go Destination
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="link-icon"
+                        aria-hidden="true">
+                        <path fill-rule="evenodd"
+                          d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </a>
+                  </li>
+                </div>
+                <div>
+                  <p class="text-sm">
+                    At Go Destination, I served as a versatile developer
+                    working on a MEAN (MongoDB, Express.js, Angular, Node.js)
+                    stack for a comprehensive tour package web application.
+                    This platform, akin to MakeMyTrip, offered end-to-end
+                    travel solutions encompassing hotel reservations, flight
+                    bookings, car rentals, and other services. My role
+                    extended to both backend and frontend development, where I
+                    managed sub-modules of the application. Notably, I
+                    facilitated seamless connections between suppliers and end
+                    customers, enhancing the overall user experience.
+                    Additionally, I successfully integrated the Rezdy API,
+                    further expanding the application's capabilities and
+                    ensuring smooth interaction with third-party services.
+                  </p>
+                </div>
+                <div>
+                  <span class="skill-tag me-2 mb-2">JavaScript</span>
+                  <span class="skill-tag me-2 mb-2">TypeScript</span>
+                  <span class="skill-tag me-2 mb-2">HTML & CSS</span>
+                  <span class="skill-tag me-2 mb-2">Node Js</span>
+                  <span class="skill-tag me-2 mb-2">Angular</span>
+                  <span class="skill-tag me-2 mb-2">Express Js</span>
+                  <span class="skill-tag mb-2">Mongo DB</span>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex exp">
+              <div class="me-3 exp-duration">Mar 2017 - Jan 2018</div>
+              <div class="flex-1">
+                <div class="job-role d-flex mb-2">
+                  <span class="me-3"> Web Developer</span>
+
+                  <li>Geet Softwork</li>
+                </div>
+                <div>
+                  <p class="text-sm">
+                    At Geet Softwork, my initial role in my first professional
+                    endeavor was instrumental in honing my skills in Node.js,
+                    SQL, and MongoDB. As a key member of the team, I primarily
+                    focused on transforming PSD designs into functional web
+                    pages. This responsibility not only allowed me to apply
+                    and strengthen my technical knowledge but also provided
+                    valuable insights into the practical aspects of web
+                    development. Working at Geet Softwork laid the foundation
+                    for my professional journey, instilling a solid
+                    understanding of backend technologies and the intricacies
+                    of database management.
+                  </p>
+                </div>
+                <div>
+                  <span class="skill-tag me-2 mb-2">JavaScript</span>
+                  <span class="skill-tag me-2 mb-2">TypeScript</span>
+                  <span class="skill-tag me-2 mb-2">HTML & CSS</span>
+                  <span class="skill-tag me-2 mb-2">Node Js</span>
+                  <span class="skill-tag me-2 mb-2">Angular</span>
+                  <span class="skill-tag mb-2">Mongo DB</span>
+                  <span class="skill-tag mb-2">PSD to HTML</span>
+                  <span class="skill-tag mb-2">JQuery</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section" id="projects">
+          <h3 class="text-uppercase mb-0 section-heading">Projects</h3>
+          <div>
+            <div class="d-flex exp">
+              <div class="me-3 project-img">
+                <img src="./imgs/context2call.png" alt="" class="w-100" />
+              </div>
+              <div class="flex-1">
+                <div class="job-role d-flex mb-2">
+                  <a class="me-3 a-link" href="https://contexttocall.com/">
+                    Context to Call
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="link-icon"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </a>
+                </div>
+                <div>
+                  <p class="text-sm">
+                    Context to Call is a business growth solution that
+                    enhances end-user experiences and boosts conversion rates.
+                    With One-Click Connect icons for calls, SMS, and email
+                    easily embedded into websites within 30 minutes,
+                    businesses can efficiently manage their communication
+                    preferences through a user-friendly dashboard. Supporting
+                    over 200 countries, the platform facilitates global
+                    expansion. Key features include a comprehensive reports
+                    dashboard, low-code integration, advanced point
+                    management, and other robust functionalities, providing
+                    businesses with a streamlined and effective way to connect
+                    with customers worldwide. Context to Call empowers
+                    enterprises to build a truly global business venture.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex exp">
+              <div class="me-3 project-img">
+                <img src="./imgs/softphone.png" alt="" class="w-100" />
+              </div>
+              <div class="flex-1">
+                <div class="job-role d-flex mb-2">
+                  <span class="me-3"> Softphone </span>
+                </div>
+                <div>
+                  <p class="text-sm">
+                    Softphone is a web application designed to enable users to
+                    make calls, send SMS, and receive both calls and SMS
+                    conveniently. Leveraging Twilio services, the app
+                    integrates robust communication functionalities into its
+                    framework. Users can initiate calls and text messages
+                    directly from the web interface, and the platform also
+                    facilitates the reception of incoming calls and messages.
+                    Twilio's reliable cloud communication services likely
+                    contribute to the seamless operation of these features,
+                    ensuring a scalable and efficient user experience. The
+                    utilization of Twilio suggests a commitment to leveraging
+                    industry-leading APIs for communication solutions.
+                    Softphone provides a versatile and user-friendly solution
+                    for interactive and efficient communication.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex exp">
+              <div class="me-3 project-img">
+                <img src="./imgs/ift.png" alt="" class="w-100" />
+              </div>
+              <div class="flex-1">
+                <div class="job-role d-flex mb-2">
+                  <a class="me-3 a-link" href="https://ogletree.com/">
+                    IFT
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="link-icon"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </a>
+                </div>
+                <div>
+                  <p class="text-sm">
+                    Immigration Financial Tool is a product which helps the US
+                    attorney to process there tasks easily. I worked on
+                    frontend of the application. My role was to first convert
+                    the entire application design into reusable components. I
+                    also worked on mapping and api integration part for 4
+                    modules of application.
+                  </p>
+                  <p class="text-sm">
+                    In my role as a frontend developer for the Immigration
+                    Financial Tool, I focused on enhancing the application's
+                    usability and functionality. I successfully converted the
+                    entire application design into reusable components,
+                    employing effective design patterns and frameworks.
+                    Additionally, I played a key role in mapping and
+                    integrating APIs for four essential modules, ensuring
+                    seamless communication between the frontend and backend.
+                    Throughout the development process, I collaborated closely
+                    with designers and backend developers, prioritizing
+                    effective communication and coordination. The end result
+                    is a well-structured and user-friendly application, where
+                    my contributions positively impacted both the frontend
+                    experience and the overall efficiency of the tool.
+                  </p>
+                  <p class="text-sm">
+                    This application only runs on virtual machines.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex exp">
+              <div class="me-3 project-img">
+                <img src="./imgs/merchant-panel.png" alt="" class="w-100" />
+              </div>
+              <div class="flex-1">
+                <div class="job-role d-flex mb-2">
+                  <a class="me-3 a-link" href="https://alzajelalsaree3.com/">
+                    Alzajel Merchant Service
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="link-icon"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </a>
+                </div>
+                <div>
+                  <p class="text-sm">
+                    I have worked on this project from the ground up, taking full responsibility for developing
+                    the platform from initial planning to deployment. This web-based platform serves as a comprehensive
+                    interface for merchants to create orders and track deliveries in real-time.
+                    Built using the MEAN stack (MongoDB, Express.js, Angular, Node.js), the application offers a
+                    responsive and
+                    user-friendly experience. My primary role involved closely collaborating with the project manager to
+                    gather and
+                    interpret functional requirements,
+                    translating them into scalable and efficient web solutions. I was also responsible for integrating
+                    APIs, ensuring
+                    secure user authentication, optimizing performance, and deploying the application on AWS for
+                    reliable, cloud-based
+                    hosting.
+                    Additionally, I contributed to debugging, testing, and maintaining the codebase throughout the
+                    development
+                    lifecycle,
+                    ensuring the final product met all business goals and technical standards
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex exp">
+              <div class="me-3 project-img">
+                <img src="./imgs/storecockpit.png" alt="" class="w-100" />
+              </div>
+              <div class="flex-1">
+                <div class="job-role d-flex mb-2">
+                  <a class="me-3 a-link" href="https://storecockpit.eu/">Storecockpit
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="link-icon"
+                      aria-hidden="true">
+                      <path fill-rule="evenodd"
+                        d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </a>
+                </div>
+                <div>
+                  <p class="text-sm">
+                    This project was primarily a data-driven web application aimed at providing a unified platform for
+                    online store
+                    owners to manage and analyze their business data efficiently. The core objective was to aggregate
+                    and centralize
+                    customer information, order histories, and other key performance metrics from various e-commerce
+                    platforms. I was
+                    responsible for integrating multiple third-party APIs, including WooCommerce, Shopware 5, and
+                    Shopware 6, enabling
+                    seamless data synchronization between different online stores and our central platform.
+
+                    The backend was developed using Node.js, with a relational SQL database
+                    managed through Sequelize ORM for structured data modeling and efficient query handling.
+                    I handled the authentication mechanisms, scheduled data syncs, and implemented data transformation
+                    layers to
+                    normalize input from various APIs.
+                    This allowed shop owners to view cross-platform analytics, track customer behavior, and generate
+                    reports in a
+                    consistent and user-friendly format.
+                    My role also involved debugging complex API issues, optimizing database queries for performance, and
+                    ensuring data
+                    accuracy across the system. Overall, this project helped bring
+                    fragmented e-commerce operations into one cohesive dashboard, significantly improving operational
+                    efficiency for
+                    merchants.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section" id="awards">
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <h3 class="text-uppercase mb-0 section-heading">Recognition</h3>
+          <div>
+            <div class="d-flex flex-column mb-5">
+
+              <p>Honored with the Impact Player Award by our esteemed client in recognition of my dedication,
+                performance, and impactful contributions to the project’s success.</p>
+              <img src="./imgs/certificate.jpg" alt="" class="w-100 mb-5">
+            </div>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+          </div>
+        </section>
+      </div>
+    </main>
+    <div class="shiny-light" id="shinyLight"></div>
+  </div>
+  <script>
+    let lightPositionX = 0;
+    let lightPositionY = 0;
+
+    function updateShinyLightPosition() {
+      const shinyLight = document.getElementById("shinyLight");
+      if (shinyLight) {
+        shinyLight.style.left = lightPositionX + "px";
+        shinyLight.style.top = lightPositionY + "px";
+      }
+    }
+    function onMouseMove(event) {
+      lightPositionX = event.clientX;
+      lightPositionY = event.clientY;
+      updateShinyLightPosition();
+    }
+    function scrollToDiv(divId, event) {
+      event.preventDefault();
+      const targetElement = document.getElementById(divId);
+
+      // Scroll to the specified div using scrollIntoView
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const sections = document.querySelectorAll(".section");
+      const navLinks = document.querySelectorAll("nav a");
+
+      function makeLinkActive() {
+
+        const scrollPosition = window.scrollY;
+
+        sections.forEach((section, index) => {
+
+          const top = section.offsetTop;
+          const bottom = top + section.offsetHeight;
+
+          if (scrollPosition >= top && scrollPosition < bottom) {
+            console.log(section);
+            console.log(index);
+            // Remove the 'active' class from all links
+            //console.log("remove");
+            navLinks.forEach((link) => link.classList.remove("active"));
+            // Add the 'active' class to the corresponding link
+            //console.log('added to ',navLinks[index])
+            navLinks[index].classList.add("active");
+          }
+        });
+      }
+
+      // Attach the makeLinkActive function to the scroll event
+      window.addEventListener("scroll", makeLinkActive);
+    });
+  </script>
+</body>
+
+</html>
